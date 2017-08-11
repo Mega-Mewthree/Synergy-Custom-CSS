@@ -10,7 +10,7 @@
 // @run-at       document-start
 // ==/UserScript==
 
-window.backgroundURL = localStorage['backgroundURL'] || "https://cdn.discordapp.com/attachments/295216348190212096/341686337084194826/lunala-and-solgaleo-pokemon_sun_and_moon-749.jpg";
+window.backgroundURL = localStorage.backgroundURL || "https://cdn.discordapp.com/attachments/295216348190212096/341686337084194826/lunala-and-solgaleo-pokemon_sun_and_moon-749.jpg";
 
 var css = `
 html {
