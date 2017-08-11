@@ -19,7 +19,7 @@ html {
   background-repeat: no-repeat;
   background-size: cover;
 }
-a, table, tr, tbody, #header, #footer, .main {
+a, table, tr, td, tbody, #header, #footer, .main {
   background: none!important;
 }
 body {
@@ -28,6 +28,18 @@ body {
   background: -webkit-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%,rgba(126,186,232,1) 1%,rgba(255,255,255,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
   background: radial-gradient(ellipse at center,  rgba(125,185,232,1) 0%,rgba(126,186,232,1) 1%,rgba(255,255,255,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#80ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+::-webkit-scrollbar-track-piece {
+  visibility: hidden;
+}
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #F90;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+  border-radius: 10px;
+  border: 0px;
 }
 `;
 
@@ -50,8 +62,14 @@ var removedImages = [
     "https://ca-egusd-psv.edupoint.com/images/PXP/corner_top_lft.gif",
     "https://ca-egusd-psv.edupoint.com/images/PXP/content_header_left.png",
     "https://ca-egusd-psv.edupoint.com/images/PXP/content_header_right.png",
+    "https://ca-egusd-psv.edupoint.com/images/PXP/content_footer_left.png",
+    "https://ca-egusd-psv.edupoint.com/images/PXP/content_footer_right.png",
     "https://ca-egusd-psv.edupoint.com/images/PXP/corner_top_rt.gif",
-    "https://ca-egusd-psv.edupoint.com/images/PXP/1x1trans.gif"
+    "https://ca-egusd-psv.edupoint.com/images/PXP/1x1trans.gif",
+    "https://ca-egusd-psv.edupoint.com/images/PXP/sidenav_bottom_left.png",
+    "https://ca-egusd-psv.edupoint.com/images/PXP/sidenav_bottom_right.png",
+    "https://ca-egusd-psv.edupoint.com/images/PXP/sidenav_top_left.png",
+    "https://ca-egusd-psv.edupoint.com/images/PXP/sidenav_top_right.png"
 ];
 
 window.onload = window.onready = () => {
@@ -66,12 +84,6 @@ window.onload = window.onready = () => {
     [].forEach.call(document.getElementsByTagName("img"), (img) => {
         if(removedImages.indexOf(img.src) > -1){
             img.remove();
-        }
-    });
-    var keepTD = document.getElementsByTagName("td")[24];
-    [].forEach.call(document.getElementsByTagName("td"), (td) => {
-        if(td !== keepTD && td.className !== "row_hdr2" && td.className !== "row_ftr2"){
-            td.style.background = "none";
         }
     });
     [].forEach.call(document.getElementsByTagName("ul"),(ul) => {
