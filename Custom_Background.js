@@ -1,12 +1,12 @@
 // ==UserScript==
 // @name         Synergy Custom Background
 // @namespace    https://discord.gg/KjMSnKk
-// @version      0.1
+// @version      0.2
 // @description  Adds a custom background to Synergy!
 // @author       Lucario
 // @include      *.edupoint.com/*
 // @exclude      *www.edupoint.com*
-// @grant        none
+// @grant        GM_addStyle
 // @run-at       document-start
 // ==/UserScript==
 
@@ -24,36 +24,26 @@ a, table, tr, td, tbody, #header, #footer, .main {
 }
 body {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#7db9e8+0,ffffff+100&1+1,0.5+100 */
-  background: -moz-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%, rgba(126,186,232,1) 1%, rgba(255,255,255,0.5) 100%); /* FF3.6-15 */
-  background: -webkit-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%,rgba(126,186,232,1) 1%,rgba(255,255,255,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
-  background: radial-gradient(ellipse at center,  rgba(125,185,232,1) 0%,rgba(126,186,232,1) 1%,rgba(255,255,255,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#80ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%, rgba(126,186,232,1) 1%, rgba(255,255,255,0.5) 100%)!important; /* FF3.6-15 */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(125,185,232,1) 0%,rgba(126,186,232,1) 1%,rgba(255,255,255,0.5) 100%)!important; /* Chrome10-25,Safari5.1-6 */
+  background: radial-gradient(ellipse at center,  rgba(125,185,232,1) 0%,rgba(126,186,232,1) 1%,rgba(255,255,255,0.5) 100%)!important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7db9e8', endColorstr='#80ffffff',GradientType=1 )!important; /* IE6-9 fallback on horizontal gradient */
 }
 ::-webkit-scrollbar-track-piece {
-  visibility: hidden;
+  visibility: hidden!important;
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 10px!important;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: #F90;
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-  border-radius: 10px;
-  border: 0px;
+  background-color: #F90!important;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent)!important;
+  border-radius: 10px!important;
+  border: 0px!important;
 }
 `;
 
-var head = document.head || document.getElementsByTagName('head')[0];
-var style = document.createElement('style');
-
-style.type = 'text/css';
-if (style.styleSheet){
-  style.styleSheet.cssText = css;
-}else{
-  style.appendChild(document.createTextNode(css));
-}
-
-head.appendChild(style);
+GM_addStyle(css);
 
 var removedImages = [
     "https://ca-egusd-psv.edupoint.com/images/PXP/header_lft3.gif",
